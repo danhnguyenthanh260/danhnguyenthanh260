@@ -2,7 +2,7 @@
 
 <div align="center">
   <!-- Premium Flight Journey Animated SVG Banner -->
-  <img src="./flight-journey-animation.svg" width="100%" alt="Flight Journey Animation" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+  <img src="https://raw.githubusercontent.com/danhnguyenthanh260/danhnguyenthanh260/main/flight-journey-animation.svg" width="100%" alt="Flight Journey Animation" />
   
   <br/>
   
@@ -46,25 +46,19 @@
 ---
 
 ### 📊 GitHub Stats & Contributions
-<div align="center">
-  <table border="0" cellpadding="0" cellspacing="0">
-    <tr>
-      <!-- Gold & Space-Dark Theme GitHub Stats -->
-      <td valign="top" width="50%">
-        <img src="https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="100%" alt="GitHub Stats" />
-      </td>
-      <!-- Top Languages -->
-      <td valign="top" width="50%">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="100%" alt="Top Languages" />
-      </td>
-    </tr>
-  </table>
-  
-  <br/>
-  
+<p align="center">
+  <!-- Gold & Space-Dark Theme GitHub Stats -->
+  <img src="https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="49%" alt="GitHub Stats" />
+  <!-- Top Languages -->
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="49%" alt="Top Languages" />
+</p>
+
+<br/>
+
+<p align="center">
   <!-- GitHub Streak Stats -->
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033" width="100%" alt="GitHub Streak" style="max-width: 800px;" />
-</div>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033" width="100%" alt="GitHub Streak" />
+</p>
 
 ---
 
