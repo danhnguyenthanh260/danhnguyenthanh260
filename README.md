@@ -48,16 +48,16 @@
 ### 📊 GitHub Stats & Contributions
 <p align="center">
   <!-- Gold & Space-Dark Theme GitHub Stats -->
-  <img src="https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="49%" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=3" width="49%" alt="GitHub Stats" />
   <!-- Top Languages -->
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false" width="49%" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=3" width="49%" alt="Top Languages" />
 </p>
 
 <br/>
 
 <p align="center">
   <!-- GitHub Streak Stats -->
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033" width="100%" alt="GitHub Streak" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033&v=3" width="100%" alt="GitHub Streak" />
 </p>
 
 ---
