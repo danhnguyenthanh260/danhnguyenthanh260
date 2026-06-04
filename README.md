@@ -2,7 +2,7 @@
 
 <div align="center">
   <!-- Premium Flight Journey Animated SVG Banner -->
-  <img src="https://raw.githubusercontent.com/danhnguyenthanh260/danhnguyenthanh260/main/flight-journey-animation.svg" width="100%" alt="Flight Journey Animation" />
+  <img src="flight-journey-animation.svg" width="100%" alt="Flight Journey Animation" />
   
   <br/>
   
