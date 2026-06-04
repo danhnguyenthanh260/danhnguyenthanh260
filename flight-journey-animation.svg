@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
   <defs>
     <!-- Sky Background Gradient -->
     <linearGradient id="sky-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -96,35 +96,31 @@
       stroke-dasharray: 2 2;
     }
 
-    /* Cloud Drift Animation */
-    @keyframes cloudDrift {
-      0%, 100% { transform: translate(var(--baseX), var(--baseY)) scale(var(--baseScale)); }
-      50% { transform: translate(var(--driftX), var(--driftY)) scale(var(--baseScale)); }
+    /* Cloud Drift Animation - Separate keyframes to avoid CSS variables sanitizer blocks */
+    @keyframes cloudDrift1 {
+      0%, 100% { transform: translate(50px, 260px) scale(1.1); }
+      50% { transform: translate(70px, 258px) scale(1.1); }
     }
+    @keyframes cloudDrift2 {
+      0%, 100% { transform: translate(300px, 90px) scale(1.35); }
+      50% { transform: translate(315px, 92px) scale(1.35); }
+    }
+    @keyframes cloudDrift3 {
+      0%, 100% { transform: translate(470px, 180px) scale(1.0); }
+      50% { transform: translate(450px, 178px) scale(1.0); }
+    }
+    @keyframes cloudDrift4 {
+      0%, 100% { transform: translate(640px, 80px) scale(0.95); }
+      50% { transform: translate(652px, 82px) scale(0.95); }
+    }
+
     .cloud {
-      animation: cloudDrift 18s ease-in-out infinite;
       will-change: transform;
     }
-    .cloud-1 {
-      --baseX: 50px; --baseY: 260px; --baseScale: 1.1;
-      --driftX: 70px; --driftY: 258px;
-      animation-duration: 16s;
-    }
-    .cloud-2 {
-      --baseX: 300px; --baseY: 90px; --baseScale: 1.35;
-      --driftX: 315px; --driftY: 92px;
-      animation-duration: 22s;
-    }
-    .cloud-3 {
-      --baseX: 470px; --baseY: 180px; --baseScale: 1.0;
-      --driftX: 450px; --driftY: 178px;
-      animation-duration: 18s;
-    }
-    .cloud-4 {
-      --baseX: 640px; --baseY: 80px; --baseScale: 0.95;
-      --driftX: 652px; --driftY: 82px;
-      animation-duration: 24s;
-    }
+    .cloud-1 { animation: cloudDrift1 16s ease-in-out infinite; }
+    .cloud-2 { animation: cloudDrift2 22s ease-in-out infinite; }
+    .cloud-3 { animation: cloudDrift3 18s ease-in-out infinite; }
+    .cloud-4 { animation: cloudDrift4 24s ease-in-out infinite; }
 
     /* Route flow and path */
     .flight-path-bg {
@@ -158,20 +154,6 @@
     .beacon-ping-3 { transform-origin: 380px 200px; animation: ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite; animation-delay: 1s; }
     .beacon-ping-4 { transform-origin: 530px 200px; animation: ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite; animation-delay: 1.5s; }
     .beacon-ping-5 { transform-origin: 720px 140px; animation: ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite; animation-delay: 2s; }
-
-    /* Aircraft Motion along offset-path */
-    @keyframes flightMotion {
-      0% { offset-distance: 0%; opacity: 0; }
-      2% { opacity: 1; }
-      96% { opacity: 1; }
-      98%, 100% { offset-distance: 100%; opacity: 0; }
-    }
-    .aircraft-motion {
-      offset-path: path('M 80 320 C 180 400, 220 120, 380 200 C 500 260, 600 60, 720 140');
-      offset-rotate: auto 0deg;
-      animation: flightMotion 14s cubic-bezier(0.35, 0.05, 0.3, 0.95) infinite;
-      position: absolute;
-    }
 
     /* Float / Shake on Aircraft */
     @keyframes floatShake {
@@ -287,8 +269,8 @@
     </g>
   </g>
 
-  <!-- 7. Animated Aircraft Layer -->
-  <g class="aircraft-motion">
+  <!-- 7. Animated Aircraft Layer using standard animateMotion -->
+  <g>
     <g class="aircraft-float">
       <!-- Scale and center aircraft viewBox 180x80 inside path coordinates -->
       <g transform="scale(0.24) translate(-90, -40)">
@@ -331,6 +313,12 @@
         </g>
       </g>
     </g>
+    <!-- Native SVG animateMotion for 100% compatibility with GitHub's sanitizer and parser -->
+    <animateMotion 
+      path="M 80 320 C 180 400, 220 120, 380 200 C 500 260, 600 60, 720 140"
+      dur="15s" 
+      repeatCount="indefinite" 
+      rotate="auto" />
   </g>
 
 </svg>
