@@ -1,11 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
   <defs>
-    <!-- Sky Background Gradient -->
+    <!-- Night Sky Background Gradient -->
     <linearGradient id="sky-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#020205" />
       <stop offset="45%" stop-color="#090816" />
       <stop offset="80%" stop-color="#140f29" />
       <stop offset="100%" stop-color="#21173f" />
+    </linearGradient>
+
+    <!-- Day Sky Background Gradient -->
+    <linearGradient id="day-sky-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b07f0b" />
+      <stop offset="35%" stop-color="#EAA800" />
+      <stop offset="75%" stop-color="#FFF5C2" />
+      <stop offset="100%" stop-color="#FFFDF0" />
     </linearGradient>
 
     <!-- Glowing Route Gradient -->
@@ -17,10 +25,18 @@
 
     <!-- Cloud Radial Gradient -->
     <radialGradient id="cloud-fill-grad" cx="35%" cy="30%" r="65%">
-      <stop offset="0%" stop-color="#FFF8D6" stop-opacity="0.2" />
+      <stop offset="0%" stop-color="#FFF8D6" stop-opacity="0.25" />
       <stop offset="40%" stop-color="#EAA800" stop-opacity="0.08" />
       <stop offset="85%" stop-color="#07070b" stop-opacity="0.85" />
       <stop offset="100%" stop-color="#07070b" stop-opacity="0.95" />
+    </radialGradient>
+
+    <!-- Sun Glow Gradient -->
+    <radialGradient id="sun-glow-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFDF0" stop-opacity="1" />
+      <stop offset="30%" stop-color="#FFEAA8" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#EAA800" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#EAA800" stop-opacity="0" />
     </radialGradient>
 
     <!-- Airplane Gradients -->
@@ -70,10 +86,22 @@
   <style>
     /* CSS Styling and Keyframes */
     
-    /* Background rect */
+    /* Day-Night Sky Cycle (20s duration) */
+    @keyframes skyCycle {
+      0%, 35%, 100% { fill: url(#sky-grad); }
+      48%, 87% { fill: url(#day-sky-grad); }
+    }
     .bg {
-      fill: url(#sky-grad);
-      rx: 16px;
+      animation: skyCycle 20s ease-in-out infinite;
+    }
+
+    /* Star field fade during day time */
+    @keyframes starsCycle {
+      0%, 35%, 100% { opacity: 0.8; }
+      48%, 87% { opacity: 0.05; }
+    }
+    .stars-group {
+      animation: starsCycle 20s ease-in-out infinite;
     }
 
     /* Star Twinkle */
@@ -96,31 +124,77 @@
       stroke-dasharray: 2 2;
     }
 
-    /* Cloud Drift Animation - Separate keyframes to avoid CSS variables sanitizer blocks */
+    /* Moon Cycle: visible at night, slides out during day */
+    @keyframes moonCycle {
+      0%, 35%, 100% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+      48%, 87% { opacity: 0; transform: translate(50px, 30px) rotate(-15deg); }
+    }
+    .moon-group {
+      animation: moonCycle 20s ease-in-out infinite;
+      transform-origin: 680px 60px;
+    }
+
+    /* Sun Cycle: hidden at night, scales up and glows during day */
+    @keyframes sunCycle {
+      0%, 35%, 100% { opacity: 0; transform: scale(0); }
+      48%, 85% { opacity: 1; transform: scale(1); }
+    }
+    .sun-group {
+      animation: sunCycle 20s ease-in-out infinite;
+      transform-origin: 150px 100px;
+    }
+
+    /* Cloud Drift and Wind-Disruption Animations (Synchronized with flight timeline)
+       Flight Timeline: 
+       - 0% to 40% (0s-8s): Flight out (left to right)
+       - 40% to 50% (8s-10s): Pause at right node, turning
+       - 50% to 90% (10s-18s): Flight back (right to left)
+       - 90% to 100% (18s-20s): Pause at left node, turning
+    */
+    
+    /* Cloud 1 (x=50, y=260) - Disrupted at 5% (flight out) and 85% (flight back) */
     @keyframes cloudDrift1 {
-      0%, 100% { transform: translate(50px, 260px) scale(1.1); }
-      50% { transform: translate(70px, 258px) scale(1.1); }
+      0%, 100% { transform: translate(50px, 260px) scale(1.1); opacity: 0.9; }
+      5% { transform: translate(25px, 270px) scale(1.0); opacity: 0.45; } /* Blow away to left */
+      15%, 75% { transform: translate(50px, 260px) scale(1.1); opacity: 0.9; }
+      85% { transform: translate(25px, 270px) scale(1.0); opacity: 0.45; } /* Blow away to left */
+      93% { transform: translate(50px, 260px) scale(1.1); opacity: 0.9; }
     }
+    
+    /* Cloud 2 (x=300, y=90) - Disrupted at 15% (flight out) and 75% (flight back) */
     @keyframes cloudDrift2 {
-      0%, 100% { transform: translate(300px, 90px) scale(1.35); }
-      50% { transform: translate(315px, 92px) scale(1.35); }
+      0%, 10% { transform: translate(300px, 90px) scale(1.35); opacity: 0.95; }
+      17% { transform: translate(270px, 60px) scale(1.2); opacity: 0.3; } /* Scatter up-left */
+      28%, 68% { transform: translate(300px, 90px) scale(1.35); opacity: 0.95; }
+      76% { transform: translate(270px, 60px) scale(1.2); opacity: 0.3; } /* Scatter up-left */
+      85%, 100% { transform: translate(300px, 90px) scale(1.35); opacity: 0.95; }
     }
+    
+    /* Cloud 3 (x=470, y=180) - Disrupted at 25% (flight out) and 65% (flight back) */
     @keyframes cloudDrift3 {
-      0%, 100% { transform: translate(470px, 180px) scale(1.0); }
-      50% { transform: translate(450px, 178px) scale(1.0); }
+      0%, 20% { transform: translate(470px, 180px) scale(1.0); opacity: 0.9; }
+      26% { transform: translate(495px, 205px) scale(0.9); opacity: 0.4; } /* Blow down-right */
+      35%, 60% { transform: translate(470px, 180px) scale(1.0); opacity: 0.9; }
+      66% { transform: translate(495px, 205px) scale(0.9); opacity: 0.4; } /* Blow down-right */
+      75%, 100% { transform: translate(470px, 180px) scale(1.0); opacity: 0.9; }
     }
+    
+    /* Cloud 4 (x=640, y=80) - Disrupted at 35% (flight out) and 55% (flight back) */
     @keyframes cloudDrift4 {
-      0%, 100% { transform: translate(640px, 80px) scale(0.95); }
-      50% { transform: translate(652px, 82px) scale(0.95); }
+      0%, 30% { transform: translate(640px, 80px) scale(0.95); opacity: 0.9; }
+      36% { transform: translate(665px, 50px) scale(0.85); opacity: 0.35; } /* Blow up-right */
+      44%, 50% { transform: translate(640px, 80px) scale(0.95); opacity: 0.9; }
+      56% { transform: translate(665px, 50px) scale(0.85); opacity: 0.35; } /* Blow up-right */
+      63%, 100% { transform: translate(640px, 80px) scale(0.95); opacity: 0.9; }
     }
 
     .cloud {
-      will-change: transform;
+      will-change: transform, opacity;
     }
-    .cloud-1 { animation: cloudDrift1 16s ease-in-out infinite; }
-    .cloud-2 { animation: cloudDrift2 22s ease-in-out infinite; }
-    .cloud-3 { animation: cloudDrift3 18s ease-in-out infinite; }
-    .cloud-4 { animation: cloudDrift4 24s ease-in-out infinite; }
+    .cloud-1 { animation: cloudDrift1 20s ease-in-out infinite; }
+    .cloud-2 { animation: cloudDrift2 20s ease-in-out infinite; }
+    .cloud-3 { animation: cloudDrift3 20s ease-in-out infinite; }
+    .cloud-4 { animation: cloudDrift4 20s ease-in-out infinite; }
 
     /* Route flow and path */
     .flight-path-bg {
@@ -158,10 +232,21 @@
     /* Float / Shake on Aircraft */
     @keyframes floatShake {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-4px) rotate(1deg); }
+      50% { transform: translateY(-3px) rotate(0.8deg); }
     }
     .aircraft-float {
-      animation: floatShake 3s ease-in-out infinite;
+      animation: floatShake 3.2s ease-in-out infinite;
+    }
+
+    /* Flip and Scale parameters to prevent upside-down flying during back-route */
+    @keyframes aircraftOrientation {
+      0%, 40% { transform: scaleY(1); }       /* Forward flight: Right side up */
+      40.1%, 90% { transform: scaleY(-1); }   /* Return flight: Flipped vertically to stay upright */
+      90.1%, 100% { transform: scaleY(1); }   /* Reset to forward */
+    }
+    .aircraft-orientation {
+      animation: aircraftOrientation 20s step-end infinite;
+      transform-origin: center center;
     }
 
     /* Pulse Glow on UI elements */
@@ -174,11 +259,11 @@
     }
   </style>
 
-  <!-- 1. Background -->
+  <!-- 1. Background (Day-Night animated) -->
   <rect class="bg" width="800" height="450" />
 
-  <!-- 2. Stars and Constellations -->
-  <g opacity="0.8">
+  <!-- 2. Stars and Constellations (Fades out during day) -->
+  <g class="stars-group" opacity="0.8">
     <!-- Starfield Background -->
     <circle class="star star-fast" cx="120" cy="80" r="1" />
     <circle class="star star-slow star-gold" cx="150" cy="140" r="1.2" />
@@ -207,10 +292,16 @@
     <polyline class="constellation-line" points="180,70 250,100 310,55 390,115 480,75 550,110 620,45" />
   </g>
 
-  <!-- 3. Crescent Moon -->
-  <g>
+  <!-- 3. Crescent Moon (Loses opacity & slides away during day) -->
+  <g class="moon-group">
     <circle cx="680" cy="60" r="18" fill="#FFFBE6" mask="url(#moon-mask)" filter="drop-shadow(0 0 12px rgba(254, 251, 232, 0.45))" />
     <circle cx="680" cy="60" r="18" fill="#FFFBE6" mask="url(#moon-mask)" opacity="0.3" filter="drop-shadow(0 0 25px rgba(254, 251, 232, 0.3))" />
+  </g>
+
+  <!-- 3b. Sun (Glows & scales up during day) -->
+  <g class="sun-group">
+    <circle cx="150" cy="100" r="50" fill="url(#sun-glow-grad)" />
+    <circle cx="150" cy="100" r="20" fill="#EAA800" stroke="#FFFDF0" stroke-width="1.0" />
   </g>
 
   <!-- 4. Base Dotted Flight Path -->
@@ -241,7 +332,7 @@
     <circle cx="720" cy="140" r="3" fill="#FFF" stroke="#EAA800" stroke-width="1.2" class="pulse-glow" />
   </g>
 
-  <!-- 6. Clouds (Drifting Parallax) -->
+  <!-- 6. Clouds (Drifting Parallax and Disrupted by Aircraft Wind) -->
   <g id="clouds" opacity="0.95">
     <!-- Cloud 1 -->
     <g class="cloud cloud-1">
@@ -269,56 +360,68 @@
     </g>
   </g>
 
-  <!-- 7. Animated Aircraft Layer using standard animateMotion -->
+  <!-- 7. Animated Aircraft Layer -->
   <g>
-    <g class="aircraft-float">
-      <!-- Scale and center aircraft viewBox 180x80 inside path coordinates -->
-      <g transform="scale(0.24) translate(-90, -40)">
-        <!-- Airplane model structure (view="right") -->
-        <g transform="translate(-4, 3)" filter="drop-shadow(0 2px 6px rgba(234, 168, 0, 0.4))">
-          <!-- Far Wing -->
-          <path d="M 115 30 L 98 14 L 90 15 L 102 30 Z" fill="url(#farWingGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="0.3" />
-          <!-- Fuselage -->
-          <path
-            d="M 170 38 C 168 33, 158 30, 145 30 L 35 31 C 26 31, 20 34, 18 38 C 20 42, 26 44, 35 44 L 145 43 C 158 43, 168 41, 170 38 Z"
-            fill="url(#fuselageGrad)"
-            stroke="rgba(255,255,255,0.55)"
-            stroke-width="0.5"
-          />
-          <!-- Fuselage Details -->
-          <path d="M 25 42 C 35 44, 55 44, 85 44 L 145 43 C 155 43, 165 42, 168 40" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1.2" />
-          <line x1="55" y1="33" x2="140" y2="33" stroke="rgba(31,41,55,0.7)" stroke-width="1.2" stroke-dasharray="2 3" stroke-linecap="round" />
-          <!-- Gold Stripe -->
-          <path d="M 30 38 L 155 37 L 154.5 38.2 L 30.5 39.2 Z" fill="#EAA800" opacity="0.95" />
-          <!-- Cockpit -->
-          <path d="M 152 32.2 C 157 32.2, 162 33.5, 163 36 C 161 37.5, 154 37, 149 36 Z" fill="url(#cockpitGrad)" stroke="rgba(255,255,255,0.4)" stroke-width="0.3" />
-          <!-- Vertical Stabilizer (Tail) -->
-          <path d="M 30 31 L 18 12 L 13 14 L 24 31 Z" fill="url(#fuselageGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
-          <!-- Far Horizontal Stabilizer -->
-          <path d="M 28 44 L 16 52 L 13 51 L 23 43 Z" fill="url(#farWingGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="0.3" />
-          <!-- Near Wing -->
-          <path d="M 115 44 L 80 70 L 65 68 L 95 44 Z" fill="url(#nearWingGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" />
-          <!-- Engine -->
-          <g>
-            <path d="M 82 54 L 78 55 L 82 56 Z" fill="#374151" />
-            <path d="M 82 53 C 82 50, 99 50, 99 55 C 99 60, 82 60, 82 55 Z" fill="url(#engineGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" />
-            <ellipse cx="98" cy="55" rx="1.2" ry="3.2" fill="#111827" />
-            <polygon points="98,55 96.5,54.2 96.5,55.8" fill="#EAA800" />
-          </g>
-          <!-- Wing Tip Beacon Light -->
-          <g>
-            <circle cx="80" cy="70" r="2.2" fill="#10B981" />
-            <circle cx="80" cy="70" r="5" fill="#10B981" opacity="0.45" class="star-fast" />
+    <!-- Rotate/Scale container for the return loop lật dọc máy bay -->
+    <g class="aircraft-orientation">
+      <!-- Gentel floating effect -->
+      <g class="aircraft-float">
+        <!-- Scale and center aircraft viewBox 180x80 inside path coordinates -->
+        <g transform="scale(0.24) translate(-90, -40)">
+          <!-- Airplane model structure (view="right") -->
+          <g transform="translate(-4, 3)" filter="drop-shadow(0 2px 6px rgba(234, 168, 0, 0.4))">
+            <!-- Far Wing -->
+            <path d="M 115 30 L 98 14 L 90 15 L 102 30 Z" fill="url(#farWingGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="0.3" />
+            <!-- Fuselage -->
+            <path
+              d="M 170 38 C 168 33, 158 30, 145 30 L 35 31 C 26 31, 20 34, 18 38 C 20 42, 26 44, 35 44 L 145 43 C 158 43, 168 41, 170 38 Z"
+              fill="url(#fuselageGrad)"
+              stroke="rgba(255,255,255,0.55)"
+              stroke-width="0.5"
+            />
+            <!-- Fuselage Details -->
+            <path d="M 25 42 C 35 44, 55 44, 85 44 L 145 43 C 155 43, 165 42, 168 40" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1.2" />
+            <line x1="55" y1="33" x2="140" y2="33" stroke="rgba(31,41,55,0.7)" stroke-width="1.2" stroke-dasharray="2 3" stroke-linecap="round" />
+            <!-- Gold Stripe -->
+            <path d="M 30 38 L 155 37 L 154.5 38.2 L 30.5 39.2 Z" fill="#EAA800" opacity="0.95" />
+            <!-- Cockpit -->
+            <path d="M 152 32.2 C 157 32.2, 162 33.5, 163 36 C 161 37.5, 154 37, 149 36 Z" fill="url(#cockpitGrad)" stroke="rgba(255,255,255,0.4)" stroke-width="0.3" />
+            <!-- Vertical Stabilizer (Tail) -->
+            <path d="M 30 31 L 18 12 L 13 14 L 24 31 Z" fill="url(#fuselageGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="0.4" />
+            <!-- Far Horizontal Stabilizer -->
+            <path d="M 28 44 L 16 52 L 13 51 L 23 43 Z" fill="url(#farWingGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="0.3" />
+            <!-- Near Wing -->
+            <path d="M 115 44 L 80 70 L 65 68 L 95 44 Z" fill="url(#nearWingGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" />
+            <!-- Engine -->
+            <g>
+              <path d="M 82 54 L 78 55 L 82 56 Z" fill="#374151" />
+              <path d="M 82 53 C 82 50, 99 50, 99 55 C 99 60, 82 60, 82 55 Z" fill="url(#engineGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" />
+              <ellipse cx="98" cy="55" rx="1.2" ry="3.2" fill="#111827" />
+              <polygon points="98,55 96.5,54.2 96.5,55.8" fill="#EAA800" />
+            </g>
+            <!-- Wing Tip Beacon Light -->
+            <g>
+              <circle cx="80" cy="70" r="2.2" fill="#10B981" />
+              <circle cx="80" cy="70" r="5" fill="#10B981" opacity="0.45" class="star-fast" />
+            </g>
           </g>
         </g>
       </g>
     </g>
-    <!-- Native SVG animateMotion for 100% compatibility with GitHub's sanitizer and parser -->
+    <!-- Native SVG animateMotion for 100% compatibility with GitHub's sanitizer and parser
+         Loop: 
+         - 0% to 40% (0s-8s): 0 -> 1 (Fly out)
+         - 40% to 50% (8s-10s): 1 -> 1 (Pause at right node to turn)
+         - 50% to 90% (10s-18s): 1 -> 0 (Fly back)
+         - 90% to 100% (18s-20s): 0 -> 0 (Pause at left node to turn)
+    -->
     <animateMotion 
       path="M 80 320 C 180 400, 220 120, 380 200 C 500 260, 600 60, 720 140"
-      dur="15s" 
+      dur="20s" 
       repeatCount="indefinite" 
-      rotate="auto" />
+      rotate="auto"
+      keyTimes="0; 0.4; 0.5; 0.9; 1"
+      keyPoints="0; 1; 1; 0; 0" />
   </g>
 
 </svg>
