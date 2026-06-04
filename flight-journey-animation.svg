@@ -68,7 +68,7 @@
   </defs>
 
   <style>
-    /* CSS Styling & Keyframes */
+    /* CSS Styling and Keyframes */
     
     /* Background rect */
     .bg {
@@ -195,7 +195,7 @@
   <!-- 1. Background -->
   <rect class="bg" width="800" height="450" />
 
-  <!-- 2. Stars & Constellations -->
+  <!-- 2. Stars and Constellations -->
   <g opacity="0.8">
     <!-- Starfield Background -->
     <circle class="star star-fast" cx="120" cy="80" r="1" />
@@ -236,7 +236,7 @@
   <!-- Active Vapor Flow Route -->
   <path class="flight-path-flow" d="M 80 320 C 180 400, 220 120, 380 200 C 500 260, 600 60, 720 140" />
 
-  <!-- 5. Beacons (Nodes) & Beacons Pings -->
+  <!-- 5. Beacons (Nodes) and Beacons Pings -->
   <g id="beacons">
     <!-- Beacon 1 -->
     <circle cx="80" cy="320" r="8" fill="none" stroke="#EAA800" stroke-width="0.8" class="beacon-ping-1" />
