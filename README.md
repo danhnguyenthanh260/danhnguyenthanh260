@@ -1,20 +1,16 @@
 # Hi there, I'm danhnguyenthanh260! 👋
 
-<div align="center">
-  <!-- Premium Flight Journey Animated SVG Banner -->
-  <img src="flight-journey-animation.svg" width="100%" alt="Flight Journey Animation" />
-  
-  <br/>
-  
-  <p align="center">
-    <strong>A passionate developer crafting beautiful, interactive web experiences.</strong>
-  </p>
+<!-- Premium Flight Journey Animated SVG Banner using pure Markdown -->
+![Flight Journey Animation](flight-journey-animation.svg)
 
-  <p align="center">
-    <a href="https://github.com/danhnguyenthanh260"><img src="https://img.shields.io/github/followers/danhnguyenthanh260?style=flat-square&logo=github&color=EAA800&labelColor=1a1a2e" alt="GitHub followers" /></a>
-    <a href="https://github.com/danhnguyenthanh260"><img src="https://img.shields.io/github/stars/danhnguyenthanh260?style=flat-square&color=EAA800&labelColor=1a1a2e" alt="GitHub stars" /></a>
-  </p>
-</div>
+<p align="center">
+  <strong>A passionate developer crafting beautiful, interactive web experiences.</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/danhnguyenthanh260"><img src="https://img.shields.io/github/followers/danhnguyenthanh260?style=flat-square&logo=github&color=EAA800&labelColor=1a1a2e" alt="GitHub followers" /></a>
+  <a href="https://github.com/danhnguyenthanh260"><img src="https://img.shields.io/github/stars/danhnguyenthanh260?style=flat-square&color=EAA800&labelColor=1a1a2e" alt="GitHub stars" /></a>
+</p>
 
 ---
 
@@ -46,19 +42,13 @@
 ---
 
 ### 📊 GitHub Stats & Contributions
-<p align="center">
-  <!-- Gold & Space-Dark Theme GitHub Stats -->
-  <img src="https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=3" width="49%" alt="GitHub Stats" />
-  <!-- Top Languages -->
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=3" width="49%" alt="Top Languages" />
-</p>
+
+<!-- Stats Cards using pure Markdown to bypass HTML parsing constraints. Xếp liền nhau để hiển thị ngang hàng trên Desktop. -->
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=4) ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=4)
 
 <br/>
 
-<p align="center">
-  <!-- GitHub Streak Stats -->
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033&v=3" width="100%" alt="GitHub Streak" />
-</p>
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033&v=4)
 
 ---
 
