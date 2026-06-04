@@ -1,7 +1,7 @@
 # Hi there, I'm danhnguyenthanh260! 👋
 
 <!-- Premium Flight Journey Animated SVG Banner using pure Markdown -->
-![Flight Journey Animation](flight-journey-animation.svg?v=7)
+![Flight Journey Animation](flight-journey-animation.svg?v=8)
 
 <p align="center">
   <strong>A passionate developer crafting beautiful, interactive web experiences.</strong>
@@ -44,11 +44,11 @@
 ### 📊 GitHub Stats & Contributions
 
 <!-- Stats Cards using pure Markdown to bypass HTML parsing constraints. Xếp liền nhau để hiển thị ngang hàng trên Desktop. -->
-![GitHub Stats](https://github-readme-stats-git-masterrstaeur-anuraghazra.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=7) ![Top Languages](https://github-readme-stats-git-masterrstaeur-anuraghazra.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=7)
+![GitHub Stats](https://github-readme-stats-git-masterrstaeur-anuraghazra.vercel.app/api?username=danhnguyenthanh260&show_icons=true&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=8) ![Top Languages](https://github-readme-stats-git-masterrstaeur-anuraghazra.vercel.app/api/top-langs/?username=danhnguyenthanh260&layout=compact&theme=tokyonight&bg_color=020205&title_color=EAA800&text_color=D4D4D4&icon_color=EAA800&border_color=EAA80033&hide_border=false&v=8)
 
 <br/>
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033&v=7)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=danhnguyenthanh260&theme=tokyonight&background=020205&title=EAA800&currStreakNum=FFF&currStreakLabel=D4D4D4&sideNums=D4D4D4&sideLabels=D4D4D4&dates=D4D4D4&ring=EAA800&fire=EAA800&stroke=EAA80033&v=8)
 
 ---
 
